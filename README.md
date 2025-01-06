@@ -5,6 +5,8 @@
 SpendSmart is a personal finance management tool designed to help users take control of their finances through effective expense tracking, insightful visual analysis, customizable budgets, and goal-setting capabilities.
 With SpendSmart, users can easily log their daily expenses and income, categorizing them into groups like groceries, entertainment, and transportation. Categories are flexible and can be customized to fit each user’s unique financial landscape. This granular tracking empowers users to manage their finances with precision. For visual clarity, SpendSmart offers a range of charts tailored for intuitive financial analysis. The platform’s budgeting tools enable users to set monthly or weekly budgets, complete with progress bars and email alerts that signal when they’re close to reaching their limits. SpendSmart also features goal tracking, so users can set personal financial goals and monitor their progress with weekly insights delivered directly through the platform and by email.
 
+:eyes: [Video Demo](https://www.youtube.com/watch?v=hFnwin-n6Uo)
+
 ---
 
 ## Key Features
