@@ -170,4 +170,3 @@ The app uses a **client-server architecture**:
 2. `npm i`
 3. `npm run test`
 
-```
