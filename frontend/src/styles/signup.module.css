@@ -1,0 +1,174 @@
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  min-height: 100vh;
+  background-color: #f0f4f8;
+  padding: 1rem;
+  margin: auto;
+}
+
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.formTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.formElement {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.formElement:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.btn {
+  width: 100%;
+  padding: 0.85rem;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.googleBtn {
+  width: 100%;
+  padding: 0.85rem;
+  background-color: #c9e9d2;
+  border: none;
+  border-radius: 5px;
+  color: #333;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.googleBtn:hover {
+  background-color: #a8d7b8;
+  color: #222;
+}
+
+.errorMessage {
+  color: #cc0000;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  background-color: #ffe6e6;
+  padding: 0.6rem;
+  border: 1px solid #cc0000;
+  border-radius: 0.6rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.successMessage {
+  color: green;
+  background-color: #e6ffe6;
+  padding: 0.6rem;
+  margin: 1.5rem 0;
+  border: 1px solid green;
+  border-radius: 0.6rem;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+  .signUpForm {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .signUpForm {
+    max-width: 90%;
+    height: auto;
+    padding: 1.5rem;
+  }
+
+  .formTitle {
+    font-size: 1.6rem;
+  }
+
+  .formElement {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .btn,
+  .googleBtn {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .errorMessage,
+  .successMessage {
+    font-size: 0.95rem;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .signUpForm {
+    max-width: 95%;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .formTitle {
+    font-size: 1.4rem;
+  }
+
+  .formElement {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .btn,
+  .googleBtn {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .errorMessage,
+  .successMessage {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+}

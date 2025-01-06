@@ -1,0 +1,383 @@
+.pageContainer * {
+  box-sizing: border-box;
+}
+
+.pageContainer {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar {
+  width: 250px;
+  min-width: 200px;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  flex-grow: 1;
+  background-color: #f5f5f5;
+  padding: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 1rem;
+  margin: 0;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  margin: 0;
+  text-align: center;
+  color: #789dbc;
+  font-family: Marcellus, serif;
+}
+
+.addBookButton {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.3s ease;
+}
+
+.addBookButton:hover {
+  transform: scale(1.1);
+}
+
+.addBookButton img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.booksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  margin: 0;
+  justify-items: center;
+  align-items: start;
+}
+
+.bookCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fef9f2;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 15rem;
+  height: auto;
+}
+
+.bookCard:hover {
+  transform: translateY(-0.3125rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.bookImage {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.bookTitle {
+  margin: 0.5rem 0 0.2rem 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #7d8d8a;
+  word-break: break-word;
+}
+
+.deleteButton {
+  background-color: #f0a8d0;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.deleteButton:hover {
+  background-color: #ffaeca;
+  transform: scale(1.05);
+}
+
+.deleteButton:focus {
+  outline: 0.125rem solid #ffaeca;
+  outline-offset: 0.125rem;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.fadeOut {
+  animation: fadeOut 0.5s forwards;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: 0;
+}
+
+.pageButton {
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  padding: 0.625rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  margin: 0 0.625rem;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.pageButton:hover:not(:disabled) {
+  background-color: #40a9ff;
+}
+
+.pageButton:disabled {
+  background-color: #e5e4e4;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  font-size: 1rem;
+}
+
+.emptyState,
+.loading {
+  text-align: center;
+  font-size: 1.125rem;
+  color: #606060;
+  padding: 1rem;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .booksGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bookCard {
+    padding: 0.5rem;
+  }
+
+  .bookImage {
+    aspect-ratio: 1 / 1;
+  }
+
+  .bookTitle {
+    font-size: 1rem;
+  }
+
+  .deleteButton {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .pageContainer {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: unset;
+    box-shadow: none;
+  }
+
+  .content {
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+  }
+
+  .header,
+  .pagination,
+  .emptyState,
+  .loading {
+    padding: 1rem;
+  }
+
+  .booksGrid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem;
+    align-items: start;
+  }
+
+  .bookCard {
+    padding: 0.5rem;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .bookImage {
+    aspect-ratio: 1 / 1;
+  }
+
+  .bookTitle {
+    font-size: 1rem;
+  }
+
+  .deleteButton {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  .errorMessage,
+  .successMessage {
+    max-width: 90%;
+    width: 100%;
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  position: relative;
+  background-color: #fff;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  border-radius: 0.5rem;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalTitle {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #7d8d8a;
+  font-family: Poppins, sans-serif;
+}
+
+.modalInput {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-family: Poppins, sans-serif;
+}
+
+.errorMessage,
+.successMessage {
+  color: #cc0000;
+  background-color: #ffe6e6;
+  padding: 10px 20px;
+  border: 1px solid #cc0000;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto 10px auto;
+  align-self: center;
+}
+
+.successMessage {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+.messageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submitButton {
+  background-color: #1ed050;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: Poppins, sans-serif;
+}
+
+.submitButton:hover {
+  background-color: #96f192;
+}
+
+.cancelButton {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.cancelIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}

@@ -1,0 +1,81 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.labelList {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.labelItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.deleteButton {
+  background-color: #ffcccc;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.newLabelForm {
+  margin-top: 1rem;
+}
+
+.newLabelForm input {
+  width: 70%;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.newLabelForm button {
+  padding: 0.5rem 1rem;
+  background-color: #c1d4c9;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.errorMessage {
+  color: #cc0000;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  background-color: #ffe6e6;
+  padding: 0.5rem;
+  border: 1px solid #cc0000;
+  border-radius: 0.5rem;
+}

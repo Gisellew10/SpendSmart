@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Marcellus&display=swap");
+
+.navbar {
+  width: 100%;
+  background-color: #f2f2f2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5rem;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.logoSection {
+  width: auto;
+  flex: 1;
+  text-align: left;
+}
+
+.logo {
+  margin-bottom: 0;
+}
+
+.menu {
+  width: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-family: "Marcellus", serif;
+  color: #5177a4;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .menuButton {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.75rem 1rem;
+    justify-content: space-between;
+  }
+
+  .menu {
+    width: 50%;
+    justify-content: flex-end;
+  }
+
+  .menuButton {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 0.5rem;
+  }
+
+  .logoSection {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .menu {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .menuButton {
+    font-size: 1.1rem;
+    padding: 0.5rem;
+  }
+}

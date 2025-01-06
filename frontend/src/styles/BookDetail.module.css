@@ -1,0 +1,383 @@
+.pageContainer * {
+  box-sizing: border-box;
+}
+
+.pageContainer {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.sidebar {
+  width: 250px;
+  min-width: 200px;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.pageContainer.sidebar-hidden .sidebar {
+  transform: translateX(-100%);
+  width: 100%;
+}
+
+.content {
+  flex-grow: 1;
+  background-color: #f5f5f5;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .pageContainer:not(.sidebar-hidden) .content {
+    margin-left: 250px;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 1rem;
+  margin: 0;
+}
+
+.title {
+  font-size: 2rem;
+  margin: 0;
+  text-align: center;
+  color: #789dbc;
+  font-family: Marcellus, serif;
+}
+
+.addExpenseButton {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition:
+    transform 0.3s ease,
+    width 0.3s ease,
+    height 0.3s ease;
+}
+
+.addExpenseButton:hover {
+  transform: scale(1.1);
+}
+
+.addExpenseButton img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.loading,
+.error,
+.noTransactions {
+  text-align: center;
+  font-size: 1.125rem;
+  color: #606060;
+  padding: 1rem;
+}
+
+.transactionList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.transactionCard {
+  position: relative;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.transactionDate,
+.transactionAmount {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.transactionType {
+  margin: 5px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.transactionCategoryAndTags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.transactionCategory {
+  font-size: 14px;
+  color: #555;
+  margin-right: 10px;
+}
+
+.transactionTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.transactionTag {
+  background-color: #e0e0e0;
+  border-radius: 15px;
+  padding: 3px 8px;
+  font-size: 12px;
+}
+
+.transactionVendor {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.transactionBalance {
+  font-style: italic;
+  color: #606060;
+  margin: 5px 0;
+}
+
+.deleteButton {
+  position: absolute;
+  top: 5px;
+  right: 35px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.deleteButton img {
+  width: 20px;
+  height: 20px;
+}
+
+.editButton {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.editButton img {
+  width: 20px;
+  height: 20px;
+}
+
+.editButton:hover img {
+  transform: scale(1.1);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 5px;
+}
+
+.pageButton {
+  padding: 8px 12px;
+  border: 1px solid #0070f3;
+  background-color: #fff;
+  color: #0070f3;
+  cursor: pointer;
+  border-radius: 3px;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.pageButton:hover:not(:disabled) {
+  background-color: #0070f3;
+  color: #fff;
+}
+
+.pageButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.activePage {
+  background-color: #0070f3;
+  color: #fff;
+}
+
+@media (max-width: 1199.98px) and (min-width: 768px) {
+  .transactionList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .pageContainer {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+    transform: translateX(-100%);
+    width: 250px;
+  }
+
+  .pageContainer.sidebar-visible .sidebar {
+    transform: translateX(0);
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .header,
+  .loading,
+  .error,
+  .noTransactions {
+    padding: 1rem;
+  }
+
+  .transactionList {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .transactionCard {
+    padding: 0.5rem;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .transactionDate,
+  .transactionAmount {
+    font-size: 1rem;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    gap: 3px;
+  }
+
+  .pageButton {
+    padding: 6px 10px;
+    font-size: 0.875rem;
+  }
+
+  .deleteButton img,
+  .editButton img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .transactionType {
+    font-size: 14px;
+  }
+
+  .transactionCategory,
+  .transactionTag {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
+
+  .transactionTags {
+    flex: 1 0 100%;
+  }
+
+  .addExpenseButton img {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .addExpenseButton {
+    right: 0.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .transactionList {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .addExpenseButton img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .addExpenseButton {
+    right: 0.25rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 820px) {
+  @media (min-width: 768px) {
+    .pageContainer .sidebar-hidden.content {
+      width: 100%;
+    }
+  }
+  .transactionList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .addExpenseButton img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .addExpenseButton {
+    right: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .pageContainer.sidebar-hidden {
+    transform: none;
+    left: 0;
+    width: 100%;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .content {
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+  }
+}
